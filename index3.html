@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>js文字向左无缝滚动</title>
+    </head>
+ 
+    <body>
+        <style type="text/css">
+           *{
+               margin: 0;
+               padding: 0;
+           }
+           ul{
+               list-style: none;
+           }
+           .qimo8 {
+                overflow: hidden;
+                width: 600px;
+            }
+             
+            .qimo8 .qimo {
+                /*width:99999999px;*/
+                width: 8000%;
+                height: 30px;
+            }
+           .pic{
+               float: left;
+               margin:3px;
+               border:1px solid #bebebe;
+               text-align: center;
+           }
+           .pic img{
+               display: inline;
+               
+               border:1px solid #bebebe;
+               
+           }
+           
+        </style>
+        <div id="demo" class="qimo8">
+            <div class="qimo">
+                <div id="demo1">
+                    <ul>
+                        <li class="pic"><img src="1.png" alt="" width="160" height="160"><div class="desc">nihao</div></li>
+                        <li class="pic"><img src="2.jpg" alt="" width="160" height="160"><div class="desc">nihao</div></li>
+                        <li class="pic"><img src="3.png" alt="" width="160" height="160"><div class="desc">nihao</div></li>
+                        <li class="pic"><img src="4.jpg" alt="" width="160" height="160"><div class="desc">nihao</div></li>
+                    </ul>
+                </div>
+                <div id="demo2"></div>
+            </div>
+        </div>
+       <script type="text/javascript">
+            var demo = document.getElementById("demo");
+            var demo1 = document.getElementById("demo1");
+            var demo2 = document.getElementById("demo2");
+            demo2.innerHTML = demo1.innerHTML;
+            
+            
+            function Marquee() {
+                if(demo.scrollLeft - demo2.offsetWidth >= 0) {
+                    demo.scrollLeft -= demo1.offsetWidth;
+                } else {
+                    demo.scrollLeft++;
+                }
+            }
+            var myvar = setInterval(Marquee, 30);
+            demo.onmouseout = function() {
+                myvar = setInterval(Marquee, 30);
+            }
+            demo.onmouseover = function() {
+                clearInterval(myvar);
+            }
+        </script>
+ 
+    </body>
+ 
+</html>
+</td>
+</tr>
+</table>
